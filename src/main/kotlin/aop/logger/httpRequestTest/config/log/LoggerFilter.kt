@@ -1,7 +1,6 @@
 package aop.logger.httpRequestTest.config.log
 
 import mu.KLogging
-import org.slf4j.LoggerFactory
 import org.springframework.web.util.ContentCachingRequestWrapper
 import org.springframework.web.util.ContentCachingResponseWrapper
 import org.springframework.web.util.WebUtils
@@ -62,7 +61,7 @@ class LoggerFilter : Filter{
         )
         if (wrapper != null) {
             val buf = wrapper.contentAsByteArray
-            if (buf.size > 0) {
+            if (buf.isNotEmpty()) {
                 try {
                     return String(buf, 0, buf.size, charset(wrapper.characterEncoding))
                 } catch (e: UnsupportedEncodingException) {
@@ -82,7 +81,7 @@ class LoggerFilter : Filter{
         )
         if (wrapper != null) {
             val buf = wrapper.contentAsByteArray
-            if (buf.size > 0) {
+            if (buf.isNotEmpty()) {
                 payload = String(buf, 0, buf.size, charset(wrapper.characterEncoding))
                 wrapper.copyBodyToResponse()
             }
