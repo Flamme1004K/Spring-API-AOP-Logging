@@ -12,3 +12,4 @@ class HttpRequestTestApplication
 fun main(args: Array<String>) {
 	runApplication<HttpRequestTestApplication>(*args)
 }
+

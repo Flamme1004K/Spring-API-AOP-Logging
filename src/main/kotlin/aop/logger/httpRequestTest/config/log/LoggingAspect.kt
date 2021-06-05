@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest
 
 @Component
 @Aspect
-class LogginAspect {
+class LoggingAspect {
     companion object : KLogging()
 
     @Pointcut(
