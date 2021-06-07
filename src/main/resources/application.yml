@@ -1,0 +1,21 @@
+logging:
+  file :
+    name : /users/myapp/log/test.log
+  level:
+    root: INFO
+  logback:
+    rollingpolicy:
+      file-name-pattern: Log-%d{yyyy-MM-dd}.%i.log
+      clean-history-on-start: true
+      total-size-cap: 100MB
+      max-history: 30
+      max-file-size: 100MB
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: loggers
+    loggers:
+      enabled: true
